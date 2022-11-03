@@ -1,0 +1,22 @@
+.grid__container {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: 300px;
+}
+
+.grid__image {
+	/* border: 1px solid #fff; */
+	height: 100%;
+	width: 100%;
+	object-fit: fill;
+}
+.border {
+	border: 3px solid red;
+}
+.grid__image__tall {
+	grid-row: span 2 / auto;
+}
+.grid__image__wide {
+	grid-column: span 3 / auto;
+}
