@@ -1,8 +1,10 @@
 import React from "react";
+import trendingIcon from "../../assets/trending-icon.svg";
 import styles from "./Grid.module.css";
 
 type Props = {
 	gifDataToGrid: Array<IGifInfo>;
+	title?: string;
 };
 
 interface IGifInfo {
@@ -16,11 +18,15 @@ interface IGifInfo {
 	};
 }
 
-const Grid = ({ gifDataToGrid }: Props) => {
+const Grid = ({ gifDataToGrid, title }: Props) => {
 	// console.log(gifDataToGrid, "grid");
 
 	return (
 		<>
+			<div className={styles.title}>
+				<img src={trendingIcon} alt='' />
+				<h2>{title ? `Search results for '${title}'` : `Trending`}</h2>
+			</div>
 			<div className={styles.grid__container}>
 				{gifDataToGrid.map((el) => {
 					const gifSize =

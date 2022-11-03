@@ -45,6 +45,7 @@
 	border: none;
 	outline: none;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .searchbar__icon {
