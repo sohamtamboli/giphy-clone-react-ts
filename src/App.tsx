@@ -7,6 +7,7 @@ function App() {
 	const [gifData, setGifData] = useState([]);
 
 	const [searchQuery, setSearchQuery] = useState<string>("");
+	const [searchQueryTitle, setSearchQueryTitle] = useState<string>("");
 
 	// fetch trending gif data
 	useEffect(() => {
@@ -15,7 +16,7 @@ function App() {
 				const rawData = await fetch(
 					`https://api.giphy.com/v1/gifs/trending?api_key=${
 						import.meta.env.VITE_API_KEY
-					}&limit=75&rating=g`
+					}&limit=${50}&rating=g`
 				);
 				const data = await rawData.json();
 				setGifData(data?.data);
@@ -29,7 +30,7 @@ function App() {
 		setSearchQuery((prevVal) => (prevVal = e.target.value));
 	}, []);
 
-	const handleSearchSubmit = (
+	const handleSearchSubmit: React.MouseEventHandler = (
 		e: React.MouseEvent<HTMLButtonElement, MouseEvent>
 	) => {
 		e.preventDefault();
@@ -40,11 +41,12 @@ function App() {
 				const rawData = await fetch(
 					`https://api.giphy.com/v1/gifs/search?api_key=${
 						import.meta.env.VITE_API_KEY
-					}&q=${searchQuery}&limit=75&offset=0&rating=g&lang=en`
+					}&q=${searchQuery}&limit=${50}&offset=0&rating=g&lang=en`
 				);
 				const data = await rawData.json();
 				console.log("searched data", data?.data);
 				setGifData(data?.data);
+				setSearchQueryTitle(searchQuery);
 			})();
 		} catch (err) {
 			console.log(err);
@@ -59,7 +61,8 @@ function App() {
 				handleSearch={handleSearch}
 				handleSearchSubmit={handleSearchSubmit}
 			/>
-			<Grid gifDataToGrid={gifData} title={searchQuery} />
+
+			<Grid gifDataToGrid={gifData} title={searchQueryTitle} />
 		</div>
 	);
 }
