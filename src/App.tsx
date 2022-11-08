@@ -16,7 +16,7 @@ function App() {
 				const rawData = await fetch(
 					`https://api.giphy.com/v1/gifs/trending?api_key=${
 						import.meta.env.VITE_API_KEY
-					}&limit=${50}&rating=g`
+					}&limit=${100}&rating=g`
 				);
 				const data = await rawData.json();
 				setGifData(data?.data);
@@ -41,7 +41,7 @@ function App() {
 				const rawData = await fetch(
 					`https://api.giphy.com/v1/gifs/search?api_key=${
 						import.meta.env.VITE_API_KEY
-					}&q=${searchQuery}&limit=${50}&offset=0&rating=g&lang=en`
+					}&q=${searchQuery}&limit=${100}&offset=0&rating=g&lang=en`
 				);
 				const data = await rawData.json();
 				console.log("searched data", data?.data);

@@ -32,10 +32,16 @@
 	gap: 1rem;
 }
 
-.arr1__flexbox,
-.arr2__flexbox {
+.arr__flexbox {
 	display: flex;
 	flex-direction: column;
 	flex: 1;
 	gap: 1rem;
+}
+
+@media only screen and (max-width: 450px) {
+	.flex__container {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 }

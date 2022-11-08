@@ -23,11 +23,15 @@ const Grid = ({ gifDataToGrid, title }: Props) => {
 
 	let arrCol1: Array<IGifInfo> = [];
 	let arrCol2: Array<IGifInfo> = [];
+	let arrCol3: Array<IGifInfo> = [];
+	let arrCol4: Array<IGifInfo> = [];
 	gifDataToGrid.forEach((el, idx, arr) => {
-		arrCol1 = arr.slice(0, 25);
-		arrCol2 = arr.slice(25, 50);
+		arrCol1 = arr.slice(0, 12);
+		arrCol2 = arr.slice(12, 25);
+		arrCol2 = arr.slice(25, 36);
+		arrCol2 = arr.slice(36, 50);
 	});
-	console.log(arrCol1, arrCol2);
+	console.log(Math.floor(gifDataToGrid.length / 4));
 
 	const numberOfCols = 4;
 
@@ -38,16 +42,26 @@ const Grid = ({ gifDataToGrid, title }: Props) => {
 				<h2>{title ? `Search results for '${title}'` : `Trending`}</h2>
 			</div>
 			<div className={styles.flex__container}>
-				<div className={styles.arr1__flexbox}>
+				<div className={styles.arr__flexbox}>
 					{arrCol1.map((arr, idx) => (
 						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
 					))}
 				</div>
-				<div className={styles.arr2__flexbox}>
+				<div className={styles.arr__flexbox}>
 					{arrCol2.map((arr, idx) => (
 						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
 					))}
 				</div>
+				{/* <div className={styles.arr__flexbox}>
+					{arrCol3.map((arr, idx) => (
+						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
+					))}
+				</div>
+				<div className={styles.arr__flexbox}>
+					{arrCol4.map((arr, idx) => (
+						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
+					))}
+				</div> */}
 			</div>
 
 			{/* normal grid approach */}
