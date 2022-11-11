@@ -19,7 +19,7 @@ interface IGifInfo {
 }
 
 const Grid = ({ gifDataToGrid, title }: Props) => {
-	// console.log(gifDataToGrid, "grid");
+	console.log(gifDataToGrid, "grid");
 
 	let arrCol1: Array<IGifInfo> = [];
 	let arrCol2: Array<IGifInfo> = [];
@@ -28,8 +28,8 @@ const Grid = ({ gifDataToGrid, title }: Props) => {
 	gifDataToGrid.forEach((el, idx, arr) => {
 		arrCol1 = arr.slice(0, 12);
 		arrCol2 = arr.slice(12, 25);
-		arrCol2 = arr.slice(25, 36);
-		arrCol2 = arr.slice(36, 50);
+		arrCol3 = arr.slice(25, 36);
+		arrCol4 = arr.slice(36, 50);
 	});
 	console.log(Math.floor(gifDataToGrid.length / 4));
 
@@ -52,7 +52,7 @@ const Grid = ({ gifDataToGrid, title }: Props) => {
 						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
 					))}
 				</div>
-				{/* <div className={styles.arr__flexbox}>
+				<div className={styles.arr__flexbox}>
 					{arrCol3.map((arr, idx) => (
 						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
 					))}
@@ -61,7 +61,7 @@ const Grid = ({ gifDataToGrid, title }: Props) => {
 					{arrCol4.map((arr, idx) => (
 						<img key={arr.id} src={arr.images.fixed_width.webp} alt='gif' />
 					))}
-				</div> */}
+				</div>
 			</div>
 
 			{/* normal grid approach */}
